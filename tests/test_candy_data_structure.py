@@ -32,4 +32,26 @@ def test_create_candy_data_structure_values():
     new_candy_data = create_new_candy_data_structure(friend_favorites)
     
     # Assert
+
+    # assert new_candy_data["lollipop"] 
+
+    '''
+    # this did not work but it was an attempt
+    structure_values = {
+        "lollipop": ["Sally", "Bob"],
+        "bubble gum": ["Sally"],
+        "laffy taffy": ["Sally", "Arlene","Carlie"],
+        "milky way": ["Bob", "Arlene"],
+        "licorice": ["Bob"],
+        "chocolate bar": ["Arlene"],
+        "nerds": ["Carlie"],
+        "sour patch kids": ["Carlie"]
+    }
     
+    assert new_candy_data == structure_values
+    '''
+
+    '''
+    candies! {'lollipop': ['Sally', 'Bob'], 'bubble gum': ['Sally'], 'laffy taffy': ['Sally', 'Arlene', 'Carlie'], 'milky way': ['Bob', 'Arlene'], 'licorice': ['Bob'], 'chocolate bar': ['Arlene'], 'nerds': ['Carlie'], 'sour patch kids': ['Carlie']}
+['Sally', 'Bob']
+    '''
