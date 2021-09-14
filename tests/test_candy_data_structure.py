@@ -22,7 +22,7 @@ def test_create_candy_data_structure_values():
 
     # Arrange
     friend_favorites = [
-        ["Sally", [ "lollipop”, “bubble gum", "laffy taffy"]],
+        [ "Sally", [ "lollipop", "bubble gum", "laffy taffy"]],
         [ "Bob", ["milky way", "licorice", "lollipop"]],
         [ "Arlene", ["chocolate bar", "milky way", "laffy taffy"]],
         [ "Carlie", ["nerds", "sour patch kids", "laffy taffy"]]
@@ -32,7 +32,8 @@ def test_create_candy_data_structure_values():
     new_candy_data = create_new_candy_data_structure(friend_favorites)
     
     # Assert
-
+    assert len(new_candy_data) == 8
+    assert new_candy_data["lollipop"] == ["Sally", "Bob"]
     # assert new_candy_data["lollipop"] 
 
     '''
