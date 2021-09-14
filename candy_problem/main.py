@@ -35,24 +35,13 @@ def create_new_candy_data_structure(data):
     #print("candies!", candy_favoriters)
     return candy_favoriters
 
-friend_favorites = [
-        [ "Sally", [ "lollipop", "bubble gum", "laffy taffy"]],
-        [ "Bob", ["milky way", "licorice", "lollipop"]],
-        [ "Arlene", ["chocolate bar", "milky way", "laffy taffy"]],
-        [ "Carlie", ["nerds", "sour patch kids", "laffy taffy"]]
-    ]
-
-    # Act
-new_candy_data = create_new_candy_data_structure(friend_favorites)
-print(len(new_candy_data))
-print(new_candy_data)
-print(new_candy_data["lollipop"])
-
-
 def get_friends_who_like_specific_candy(data, candy_name):
     candy_struct = create_new_candy_data_structure(data)
-    #print(candy_struct[candy_name])
-    return candy_struct[candy_name]
+    if candy_name in candy_struct:
+        #print(candy_struct[candy_name])
+        return candy_struct[candy_name]
+    else:
+        return None
 '''
 get_friends_who_like_specific_candy(friend_favorites, "milky way")
 '''
