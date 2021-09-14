@@ -36,23 +36,49 @@ def test_create_candy_data_structure_values():
     assert new_candy_data["lollipop"] == ["Sally", "Bob"]
     # assert new_candy_data["lollipop"] 
 
-    '''
-    # this did not work but it was an attempt
-    structure_values = {
-        "lollipop": ["Sally", "Bob"],
-        "bubble gum": ["Sally"],
-        "laffy taffy": ["Sally", "Arlene","Carlie"],
-        "milky way": ["Bob", "Arlene"],
-        "licorice": ["Bob"],
-        "chocolate bar": ["Arlene"],
-        "nerds": ["Carlie"],
-        "sour patch kids": ["Carlie"]
-    }
-    
-    assert new_candy_data == structure_values
-    '''
+def test_invalid_candy_name():
+    # Arrange
+    friend_favorites = [
+        [ "Sally", [ "lollipop", "bubble gum", "laffy taffy"]],
+        [ "Bob", ["milky way", "licorice", "lollipop"]],
+        [ "Arlene", ["chocolate bar", "milky way", "laffy taffy"]],
+        [ "Carlie", ["nerds", "sour patch kids", "laffy taffy"]]
+    ]
+    candy_name = "peeps"
 
-    '''
-    candies! {'lollipop': ['Sally', 'Bob'], 'bubble gum': ['Sally'], 'laffy taffy': ['Sally', 'Arlene', 'Carlie'], 'milky way': ['Bob', 'Arlene'], 'licorice': ['Bob'], 'chocolate bar': ['Arlene'], 'nerds': ['Carlie'], 'sour patch kids': ['Carlie']}
-['Sally', 'Bob']
-    '''
+    # Act
+    candy_friends = get_friends_who_like_specific_candy(friend_favorites, candy_name)
+
+    # Assert
+    assert candy_friends == None
+
+def test_valid_candy_name():
+    friend_favorites = [
+        [ "Sally", [ "lollipop", "bubble gum", "laffy taffy"]],
+        [ "Bob", ["milky way", "licorice", "lollipop"]],
+        [ "Arlene", ["chocolate bar", "milky way", "laffy taffy"]],
+        [ "Carlie", ["nerds", "sour patch kids", "laffy taffy"]]
+    ]
+    candy_name = "nerds"
+
+    # Act
+    candy_friends = get_friends_who_like_specific_candy(friend_favorites, candy_name)
+
+    # Assert
+    assert candy_friends == ["Carlie"]
+
+def test_set_of_candies():
+    friend_favorites = [
+        [ "Sally", [ "lollipop", "bubble gum", "laffy taffy"]],
+        [ "Bob", ["milky way", "licorice", "lollipop"]],
+        [ "Arlene", ["chocolate bar", "milky way", "laffy taffy"]],
+        [ "Carlie", ["nerds", "sour patch kids", "laffy taffy"]]
+    ]
+    
+    list_candies = create_candy_set(friend_favorites)
+
+
+    assert type(list_candies) == set
+    assert list_candies == set(["lollipop","bubble gum", "laffy taffy","milky way","licorice",\
+        "chocolate bar","nerds","sour patch kids"])
+
